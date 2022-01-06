@@ -9,23 +9,115 @@
     <style>
         body {
             min-width: 500px;
-            height: 250px;
+            height: 300px;
             font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+            background-color: #101010;
             padding: 10px;
+        }
+        
+        .heading {
+            text-align: center;
+            color: green;
+            width: 100%;
+        }
+        
+        .body {
+            background-color: #eee;
+            height: auto;
+            border-radius: 15px;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .body h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+        
+        .timeInterval {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .buttonDiv {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        
+        #takeAttendance,
+        #quickAttendance {
+            background-color: green;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            word-spacing: 0.75px;
+            padding: 10px 15px;
+            outline: none;
+            border: none;
+            width: -moz-fit-content;
+            width: fit-content;
+            margin: 0 auto;
+            color: #101010;
+        }
+        
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        span,
+        input {
+            font-size: 20px;
+            align-self: center;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 25px;
+            margin: 0px;
+        }
+        
+        #participant {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div style="background-color: DEEPSKYBLUE; height: 0px; margin-top: 0px"></div>
-    <p>Welcome To Hello World Chrome Extension</p>
-    <button id="GetURL"> Get Current URL</button>
-    <p> You are browsing URL - <span id="url"> </span> </p>
-    <button id="getText"> Get Selected Text</button>
-    <p> Selected Text - <span id="selectedtext"> </span> </p>
-    <button id="colorChange"> Change color of Page</button>
-    <button id="takeAttendance"> Take Addtendance</button>
-    <p id="participant"></p>
+
+    <div class="body">
+        <h1 class="heading">Meet Attendce Taker</h1>
+        <h3>Select Frequency Of Monitoring Attendce</h3>
+        <div class="timeInterval">
+            <label>
+                <input type="radio" value="6000" name="attendance-frequency"/>
+                <span>1 min</span>
+            </label>
+            <label>
+                <input type="radio" value="30000" name="attendance-frequency"/>
+                <span>5 min</span>
+             </label>
+            <label>
+                <input type="radio" value="60000" name="attendance-frequency"/>
+                <span>10 min</span>
+            </label>
+        </div>
+        <div class="buttonDiv">
+            <button id="takeAttendance"> Monitor Attendance</button>
+            <button id="quickAttendance"> Quick Attendance</button>
+        </div>
+        <p id="participant"></p>
+    </div>
     <script src="main.js"></script>
 </body>
 

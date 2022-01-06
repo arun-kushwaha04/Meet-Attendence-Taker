@@ -1,30 +1,3 @@
-'use strict';
-let GetURL = document.getElementById('GetURL');
-GetURL.onclick = function(element) {
-    getCurrentTabUrl();
-};
-document.getElementById('getText').onclick = function(element) {
-    chrome.tabs.executeScript({
-        code: "window.getSelection().toString();"
-    }, function(selection) {
-        document.getElementById("selectedtext").innerHTML = selection[0];
-    });
-};
-
-function modifyDOM() {
-    //You can play with your DOM here or check URL against your regex  
-    console.log('Tab script:');
-    console.log(document.body);
-    document.body.style.background = "blue"
-    return true;
-}
-document.getElementById('colorChange').onclick = function(element) {
-    chrome.tabs.executeScript({
-        code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code  
-    }, function(selection) {
-        alert(selection);
-    });
-};
 
 document.getElementById('takeAttendance').onclick = () => {
     chrome.tabs.executeScript({
